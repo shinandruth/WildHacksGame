@@ -1,75 +1,64 @@
-import java.awt.Canvas;
-import java.awt.Dimension;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.io.*;
 
+import javax.swing.*;
 
-import javax.swing.JFrame;
+public class CircleButton extends JButton {
+	public CircleButton(String label) {
+		super(label);
 
+		Dimension size = getPreferredSize();
+		size.width = size.height = Math.max(size.width, size.height);
+		setPreferredSize(size);
 
-public class Game extends Canvas implements Runnable {
-
-
-	private static final int WIDTH = 320;
-	private static final int HEIGHT = WIDTH / 12 * 9;
-	private static final int SCALE = 2;
-	private final String TITLE = "WildHacks Game!!!";
-
-
-	private boolean running = false;
-	private Thread thread;
-
-
-	private synchronized void start() {
-		if (running) {
-			return;
-		}
-		running = true;
-		thread = new Thread(this);
-		thread.start();
+		setContentAreaFilled(false);
 	}
 	
-	private synchronized void stop() {
-		if (!running) {
-			return;
+	public static String changeText = "Good Morning";
+
+	protected void paintComponent(Graphics g) {
+		if (getModel().isArmed()) {
+			g.setColor(Color.LIGHT_GRAY);
+		} else {
+			g.setColor(getBackground());
 		}
-		running = false;
-		try {
-			thread.join();
-		} catch (InterruptedException exception) {
-			exception.printStackTrace();
-		}
-		System.exit(1);
+		g.fillOval(0, 0, getSize().width - 1, getSize().height - 1);
+		super.paintComponent(g);
+
 	}
 
+	protected void paintBorder(Graphics g) {
+		g.setColor(getForeground());
+		g.drawOval(0, 0, getSize().width - 1, getSize().height - 1);
+	}
 
-	public static void main(String args[]) {
-		Game game = new Game();
+	public static void main(String[] args) throws FileNotFoundException {
+    String storyLine = "story.txt";
+		Scanner story = new Scanner(new File(storyLine));
+		JButton button = new CircleButton(changeText);
+		button.setBackground(Color.white);
+		// Create a frame in which to show the button.
+		JFrame frame = new JFrame();
+		frame.getContentPane().setBackground(Color.black);
+		frame.getContentPane().add(button);
+		button.addActionListener(new ActionListener() {
 
-
-		game.setPreferredSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
-		game.setMaximumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
-		game.setMinimumSize(new Dimension(WIDTH * SCALE, HEIGHT * SCALE));
-
-
-		JFrame frame = new JFrame(game.TITLE);
-		frame.add(game);
-		frame.pack();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setLocationRelativeTo(null);
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (story.hasNextLine()) {
+					changeText = (story.nextLine());
+					button.setText(changeText);
+				}
+			}
+		});
+		// frame.getContentPane().setLayout(new FlowLayout());
+		frame.setSize(500, 500);
 		frame.setVisible(true);
-		
-		game.start();
 	}
-
-
-	@Override
-	public void run() {
-		while (running) {
-			// stuff
-			System.out.println("Hello!");
-		}
-		stop();
-	}
-
-
-}
+};

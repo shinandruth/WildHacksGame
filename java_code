@@ -10,13 +10,19 @@ import java.io.*;
 import javax.swing.*;
 
 public class CircleButton extends JButton {
+	public static int lineNum = 0;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public CircleButton(String label) {
 		super(label);
 
 		Dimension size = getPreferredSize();
-		size.width = size.height = Math.max(size.width, size.height);
+		size.width = size.width / 2;
+		size.height = (size.height / 2);
 		setPreferredSize(size);
-
 		setContentAreaFilled(false);
 	}
 	
@@ -24,7 +30,7 @@ public class CircleButton extends JButton {
 
 	protected void paintComponent(Graphics g) {
 		if (getModel().isArmed()) {
-			g.setColor(Color.LIGHT_GRAY);
+			g.setColor(Color.lightGray);
 		} else {
 			g.setColor(getBackground());
 		}
@@ -40,6 +46,7 @@ public class CircleButton extends JButton {
 
 	public static void main(String[] args) throws FileNotFoundException {
     String storyLine = "story.txt";
+    
 		Scanner story = new Scanner(new File(storyLine));
 		JButton button = new CircleButton(changeText);
 		button.setBackground(Color.white);
@@ -51,9 +58,35 @@ public class CircleButton extends JButton {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				lineNum++;
 				if (story.hasNextLine()) {
 					changeText = (story.nextLine());
 					button.setText(changeText);
+				}
+				switch(lineNum){
+				case 1:
+				case 2:
+				case 3:
+					button.setBackground(Color.green);
+					break;
+				case 4:
+				case 5:
+					button.setBackground(Color.yellow);
+					break;
+				case 6:
+				case 7:
+					button.setBackground(Color.red);
+					break;
+				case 11:
+					button.setBackground(Color.cyan);
+					break;
+				case 13:
+				case 14:
+					button.setBackground(Color.gray);
+					break;
+				default:
+					button.setBackground(Color.white);
+						
 				}
 			}
 		});

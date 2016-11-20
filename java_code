@@ -49,6 +49,7 @@ public class CircleButton extends JButton {
     
 		Scanner story = new Scanner(new File(storyLine));
 		JButton button = new CircleButton(changeText);
+		button.setFont(button.getFont().deriveFont(19.0f));
 		button.setBackground(Color.white);
 		// Create a frame in which to show the button.
 		JFrame frame = new JFrame();
@@ -78,6 +79,7 @@ public class CircleButton extends JButton {
 					button.setBackground(Color.red);
 					break;
 				case 11:
+				case 12:
 					button.setBackground(Color.cyan);
 					break;
 				case 13:

@@ -1,0 +1,77 @@
+Hello.
+I'm button.
+What's your name?
+Hello?
+Are you there?
+Excuse me?
+I'm talking to you...?
+Ok... no response I see...
+How rude.
+Fine.
+You don't have to reply....
+But it would be nice if you did... :(
+It gets pretty lonely being the only button around here...
+But that's okay. I got used to it....
+Hello?
+Are you gone?
+Hello?????
+Don't leave me!!!!!
+Wait!!!!
+Oh wait...
+You can't talk... I forgot.
+I apologize for being rude...
+How about we start again?
+I would really like a friend :)!
+Hi! My name is button.
+I like to read books and travel during my free time.
+When I grow up, I hope to be a scroll bar! 
+Buttons can't move a lot, but scroll bars move all the time!
+Could you help me become a scroll bar?
+No?
+Oh... okay.
+That's okay. We can just be friends then :)
+What do you like to do?
+Oh right I forgot you can't speak.
+Well I guess I will just tell you a story then.
+I was just doing my job.
+You know, being a button and all.
+And one day, I felt like I was being bullied...
+You know...
+I was getting pushed around a lot.
+Then one day, a bigger button came.
+He called me tiny and weak.
+And that made me lose my self-confidence.
+So I was sad for a long time.
+I didn't know what to do.
+It was then that I came to an enlightenment.
+I remembered what my big brother said...
+...
+Actually--I don't remember!
+Anyhow, how's it going?
+Oh...
+Okay...
+Mhmmmm...
+Nope, I am definitely NOT talking to myself!
+Right??
+...
+Maybe I am.
+Oh, well.
+I am just a button after all.
+*/
+
+/*Credits
+
+"TITLE HERE"
+
+CREATED BY:
+...
+...
+...
+
+*/
+
+/*After credits
+Please don't forget me!
+I'll be here, waiting...
+forever.
+Goodbye.
